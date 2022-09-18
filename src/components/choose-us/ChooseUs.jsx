@@ -30,7 +30,7 @@ const ChooseUs = () => {
                     <i class="ri-truck-line"></i>
                   </span>
                   <h6>Free Home Delivery</h6>
-                  <p>Lorem ipsum dolor sit amet.</p>
+                  <p>On order above ₹500.</p>
                 </div>
 
                 <div className="single__feature">
@@ -47,16 +47,16 @@ const ChooseUs = () => {
                   <span className="feature__icon-3">
                     <i class="ri-secure-payment-line"></i>
                   </span>
-                  <h6>Secure Payment</h6>
-                  <p>Lorem ipsum dolor sit amet.</p>
+                  <h6>Cash On Delivery</h6>
+                  <p>Pay after you get your order.</p>
                 </div>
 
                 <div className="single__feature">
                   <span className="feature__icon-4">
                     <i class="ri-24-hours-line"></i>
                   </span>
-                  <h6>24/7 Hours Support</h6>
-                  <p>Lorem ipsum dolor sit amet.</p>
+                  <h6>10 Hours Delivery Support</h6>
+                  <p>11 AM to 10 PM delivery support.</p>
                 </div>
               </div>
             </div>
