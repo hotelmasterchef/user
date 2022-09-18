@@ -1,4 +1,9 @@
 // ======= imported  all products images from images folder ========
+import food_paneer_butter_masala from "../images/food_paneer_butter_masala.png";
+import food_chicken_lolipop from "../images/food_chicken_lolipop.png";
+import food_crispy_chicken from "../images/food_crispy_chicken.png";
+import food_veg_kadai from "../images/food_veg_kadai.png";
+
 import pizzaImg01 from "../images/pizza1.png";
 
 import fastFood03 from "../images/chicken3.png";
@@ -16,28 +21,28 @@ export const popularMenuFood = [
   {
     id: "01",
     title: "Paneer Butter Masala",
-    price: 25,
-    imgUrl: fastFood03,
+    price: 95,
+    imgUrl: food_paneer_butter_masala,
   },
   {
     id: "02",
     title: "Chicken Lollypop",
-    price: 250,
-    imgUrl: fastFood04,
+    price: 90,
+    imgUrl: food_chicken_lolipop,
   },
 
   {
     id: "03",
     title: "Crispy Chicken",
-    price: 45,
-    imgUrl: dessert02,
+    price: 125,
+    imgUrl: food_crispy_chicken,
   },
 
   {
     id: "04",
     title: "Veg Kadai",
     price: 75,
-    imgUrl: pizzaImg01,
+    imgUrl: food_veg_kadai,
   },
 ];
 
