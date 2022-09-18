@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import "./header.css";
-
+import Img_chefHat from '../../assets/images/chef_hat.png'
 import { Container } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   {
@@ -9,21 +10,16 @@ const navLinks = [
     url: "/",
   },
   {
+    display: "Menu",
+    url: "/menu",
+  },
+  {
     display: "About",
     url: "/about",
   },
-
-  {
-    display: "Menu",
-    url: "#",
-  },
-  {
-    display: "Recipes",
-    url: "#",
-  },
   {
     display: "Contact",
-    url: "#",
+    url: "/contact",
   },
 ];
 
@@ -39,7 +35,7 @@ const Header = () => {
           <div className="logo">
             <h2 className=" d-flex align-items-center gap-1">
               <span>
-                <i class="ri-restaurant-2-line"></i>
+                <img src={Img_chefHat} alt="logo" className="logo_img" />
               </span>
               MasterChef
             </h2>
@@ -49,10 +45,8 @@ const Header = () => {
             <div className="nav__list__wrapper d-flex align-items-center gap-5">
               <ul className="nav__list">
                 {navLinks.map((item, index) => (
-                  <li className="nav__item" key={index}>
-                    <a href={item.url} onClick={menuToggle}>
-                      {item.display}
-                    </a>
+                  <li className="nav__item" key={index} onClick={menuToggle}>
+                    <Link to={item.url} >{item.display}</Link>
                   </li>
                 ))}
               </ul>
