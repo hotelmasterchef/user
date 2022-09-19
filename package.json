@@ -1,5 +1,6 @@
 {
-  "name": "ecommerce-website-1",
+  "name": "Masterchef",
+  "homepage": "http://masterchef.ml/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
