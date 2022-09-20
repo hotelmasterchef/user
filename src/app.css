@@ -121,6 +121,14 @@ i {
 ///////////// About //////////////
 /////////////////////////////////
 */
-.about_restaurant{
-  
+.about_restaurant_img{
+  /* width: 100%;
+  height: 400px;
+  object-fit: contain; */
+}
+.about_restaurant_img:hover{
+  box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
+-webkit-box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
+-moz-box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
+
 }
