@@ -44,10 +44,22 @@ a {
 i {
   color: #fff;
 }
+.button_p {
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 10px;
+  background-color: #f5b70a;
+  color: white;
+}
 
 @media only screen and (max-width: 767px) {
   section {
     padding: 40px 0px;
+  }
+  h1,
+  h2 {
+    font-size: 1.4rem;
   }
 }
 
@@ -121,14 +133,49 @@ i {
 ///////////// About //////////////
 /////////////////////////////////
 */
-.about_restaurant_img{
-  /* width: 100%;
+.about_restaurant_img {
   height: 400px;
+  /* width: 100%;
   object-fit: contain; */
 }
-.about_restaurant_img:hover{
-  box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
--webkit-box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
--moz-box-shadow: -1px -1px 23px 4px rgba(245,183,10,0.75);
-
+.about_restaurant_img:hover {
+  box-shadow: -1px -1px 23px 4px rgba(245, 183, 10, 0.75);
+  -webkit-box-shadow: -1px -1px 23px 4px rgba(245, 183, 10, 0.75);
+  -moz-box-shadow: -1px -1px 23px 4px rgba(245, 183, 10, 0.75);
+}
+@media only screen and (max-width: 768px) {
+  .about_restaurant_img {
+    height: 300px;
+  }
+}
+/* /////////////////////////////
+///////////// contact us //////////////
+/////////////////////////////////
+*/
+.contact_info {
+  font-size: 30px;
+  margin-left: 40px;
+}
+.map_embed {
+  height: 400px;
+  width: 100%;
+}
+.contact_form_input {
+  padding: 7px 15px;
+  border: 1px solid #fde4e4;
+  border-radius: 5px;
+  outline: none;
+  background: #0a071a;
+  color: white;
+  width: 100%;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .contact_info {
+    font-size: 1rem;
+    margin-left: 0px;
+  }
+  .map_embed {
+    height: 300px;
+  }
 }

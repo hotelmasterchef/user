@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Img_restaurant from "../assets/images/restaurant.png";
+import Img_owner from '../assets/images/owner.jpeg'
 
 const About = () => {
   return (
@@ -26,7 +27,7 @@ const About = () => {
         </Row>
         <Row style={{ marginTop: "100px" }}>
           <Col lg="6" sm="12" className="d-flex justify-content-center justify-center align-center ">
-            <img src={Img_restaurant} alt="Restaurant" className="about_restaurant_img" />
+            <img src={Img_owner} alt="Restaurant" className="about_restaurant_img" />
           </Col>
           <Col lg="6" sm="12">
             <p className="mt-5">
