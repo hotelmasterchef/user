@@ -19,23 +19,23 @@ const Download = () => {
           <Col lg="6" md="6">
             <div className="app__content">
               <h5>Download our app</h5>
-              <h2 className="mb-4">
-                Never Feel Hungry! Download Our Mobile App Order Delicious Food
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                ducimus iste minus quidem optio natus, ullam omnis! Esse, sint
-                quia.
-              </p>
+              <h2 className="mb-4">Never Feel Hungry! Download Our Mobile App Order Delicious Food</h2>
+              <p>If food is your question, our answer is yes! Choose your favorite dishes from our menu at great prices.</p>
 
               <div className="app__btns d-flex align-items-center gap-5 mt-4">
-                <button className="btn__apple d-flex align-items-center gap-3">
-                  <i class="ri-apple-line"></i> <a href="#">Apple Store</a>
+                <button
+                  className="btn__apple d-flex align-items-center gap-3"
+                  onClick={() => alert("We are working on it.You can order through our website too.")}
+                >
+                  <i class="ri-apple-line"></i> Apple Store
                 </button>
 
-                <button className="btn__google d-flex align-items-center gap-3">
-                  <i class="ri-google-play-line"></i>{" "}
-                  <a href="https://play.google.com">Google Play</a>
+                <button
+                  onClick={() => alert("We are working on it.You can order through our website too.")}
+                  className="btn__google d-flex align-items-center gap-3"
+                >
+                  <i class="ri-google-play-line"></i>
+                  Google Play
                 </button>
               </div>
             </div>

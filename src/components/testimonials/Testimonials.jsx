@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./testimonial.css";
 
-import testimonialImg from "../../assets/images/review1.png";
+import testimonialImg from "../../assets/images/review1.svg";
 
 import Slider from "react-slick";
 
@@ -28,45 +28,37 @@ const Testimonials = () => {
                   <div>
                     <div className="single__testimonial">
                       <p className="review__content">
-                        "Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Perferendis aliquam numquam laudantium atque velit
-                        accusamus ipsum molestias, maiores amet! Earum nobis
-                        neque odit natus cumque a expedita, corrupti libero!
-                        Praesentium!"
+                        "We really enjoyed the evening at MasterChef. The food was delicious and beautifully presented. The service was excellent.The atmosphere
+                        and lighting was exactly what we would expect from a great restaurant."
                       </p>
 
-                      <h6>Jhon Doe</h6>
-                      <p>Web Developer</p>
+                      <h6>Partha Priyaranjan Panda</h6>
+                      <p>Biriput, Tigiria</p>
                     </div>
                   </div>
 
                   <div>
                     <div className="single__testimonial">
                       <p className="review__content">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Perferendis aliquam numquam laudantium atque velit
-                        accusamus ipsum molestias, maiores amet! Earum nobis
-                        neque odit natus cumque a expedita, corrupti libero!
-                        Praesentium!
+                        "We had the most perfect dinner last night! Everything was magical, the food, service and overall ambience. Also the manager of the
+                        hotel was very friendly and polite."
                       </p>
 
-                      <h6>Jhon Doe</h6>
-                      <p>Web Developer</p>
+                      <h6>Bibhuprasad Mohapatra</h6>
+                      <p>Nuapatana, Tigiria</p>
                     </div>
                   </div>
 
                   <div>
                     <div className="single__testimonial">
                       <p className="review__content">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Perferendis aliquam numquam laudantium atque velit
-                        accusamus ipsum molestias, maiores amet! Earum nobis
-                        neque odit natus cumque a expedita, corrupti libero!
-                        Praesentium!
+                        "My wife and I had a most enjoyable experience last night,the food was as usual excellent and the service was exemplary. I was
+                        particularly impressed that after I had made a stain on my shirt, one of your staff appeared with a glass of soda water and a napkin to
+                        help me clean the shirt."
                       </p>
 
-                      <h6>Jhon Doe</h6>
-                      <p>Web Developer</p>
+                      <h6>Sabyasachi Panda</h6>
+                      <p>Abhimanpur, Badamba</p>
                     </div>
                   </div>
                 </Slider>
