@@ -65,17 +65,24 @@ const Footer = () => {
 
               <ListGroup>
                 <ListGroupItem className="link__item">
-                  <a className="d-flex align-items-center gap-3 link_hover" href="">
+                  <a className="d-flex align-items-center gap-3 link_hover" target="_blank" href="https://maps.app.goo.gl/2GxjA7c2SHFhGGow9">
                     <i class="ri-map-pin-line"></i> Hotel MasterChef, Tigiria
                   </a>
                 </ListGroupItem>
 
                 <ListGroupItem className="link__item d-flex align-items-center gap-3">
-                  <i class="ri-mail-line"></i> hotelmasterchef1@gmail.com
+                  <a className="d-flex align-items-center gap-3 link_hover" href="mailto:hotelmasterchef1@gmail.com">
+                    <i class="ri-mail-line"></i> hotelmasterchef1@gmail.com
+                  </a>
                 </ListGroupItem>
 
-                <ListGroupItem className="link__item d-flex align-items-center gap-3">
-                  <i class="ri-phone-line"></i> +91 8378938837
+                <ListGroupItem className="link__item  gap-3">
+                  <a className="d-flex align-items-center gap-3 link_hover" href="tel:+918378938837">
+                    <i class="ri-phone-line"></i> +91 8378938837
+                  </a>
+                  <a className="d-flex align-items-center gap-4 link_hover" href="tel:+919130328398">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 9130328398
+                  </a>
                 </ListGroupItem>
               </ListGroup>
             </Col>
