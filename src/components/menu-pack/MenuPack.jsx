@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 
 import ProductCard from "../product-card/ProductCard";
 import {
+  vegFoodProducts,
   fastFoodProducts,
   riceMenuProducts,
   pizzaProducts,
@@ -13,12 +14,12 @@ import {
 import "./menu-pack.css";
 
 const MenuPack = () => {
-  const [filter, setFilter] = useState("RICE-MENU");
+  const [filter, setFilter] = useState("Non-Veg");
   const [products, setProducts] = useState(riceMenuProducts);
 
   useEffect(() => {
-    if (filter === "RICE-MENU") {
-      setProducts(riceMenuProducts);
+    if (filter === "Veg") {
+      setProducts(vegFoodProducts);
     }
     if (filter === "FAST-FOOD") {
       setProducts(fastFoodProducts);
@@ -47,11 +48,11 @@ const MenuPack = () => {
           <Col lg="12" className="text-center mb-5">
             <button
               className={`filter-btn ${
-                filter === "FAST-FOOD" ? "active__btn" : ""
+                filter === "Veg" ? "active__btn" : ""
               }`}
-              onClick={() => setFilter("FAST-FOOD")}
+              onClick={() => setFilter("Veg")}
             >
-              Fast Food
+              Veg
             </button>
             <button
               className={`filter-btn ${

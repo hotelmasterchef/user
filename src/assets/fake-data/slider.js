@@ -5,8 +5,8 @@ import sliderImg03 from "../images/slider03.png";
 export const sliderData = [
   {
     id: "01",
-    title: "HUNGRY? Just wait food at your door",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi animi, itaque ipsum magnam quae alias omnis veniam dolor fugiat similique voluptas consectetur corrupti odit quisquam incidunt quia architecto voluptate molestiae?",
+    title: "Hunger gives stress; we give food",
+    desc: "If food is your question, our answer is yes! Choose your favorite dishes from the best restaurants at great prices.",
     imgUrl: sliderImg01,
   },
   {
@@ -17,8 +17,8 @@ export const sliderData = [
   },
   {
     id: "03",
-    title: "Meet, Eat and Enjoy the true test",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi animi, itaque ipsum magnam quae alias omnis veniam dolor fugiat similique voluptas consectetur corrupti odit quisquam incidunt quia architecto voluptate molestiae?",
+    title: "Hungry or thirsty? Order now",
+    desc: "We deliver right to your home from the best restaurants across the city, anytime.",
     imgUrl: sliderImg03,
   },
 ];

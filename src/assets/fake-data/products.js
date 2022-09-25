@@ -42,6 +42,8 @@ import product_06_image_01 from "../images/bread(1).png";
 import product_06_image_02 from "../images/bread(2).png";
 import product_06_image_03 from "../images/bread(3).png";
 
+// NOTE: fastfood
+import jeerarice from '../images/Jeerarice.png'
 // NOTE: done
 
 export const popularMenuFood = [
@@ -72,6 +74,15 @@ export const popularMenuFood = [
     imgUrl: food_veg_kadai,
   },
 ];
+
+export const vegFoodProducts = [
+  {
+    id: "01",
+    title: "Jeera Rice",
+    price: 95,
+    imgUrl: jeerarice,
+  },
+]
 
 export const fastFoodProducts = [
   {
