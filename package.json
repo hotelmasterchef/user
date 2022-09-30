@@ -1,6 +1,6 @@
 {
-  "name": "Masterchef",
-  "homepage": "http://hotelmasterchef.github.io/user",
+  "name": "hotel_masterchef",
+  "homepage": "http://hotelmasterchef.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
