@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import products from "../assets/fake-data/products";
 import ProductCard from "../components/product-card/ProductCard";
 import ReactPaginate from "react-paginate";
-
+import { useGlobalContext } from "../contextApi/Context";
 const Menu = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+  const { foods, menus } = useGlobalContext();
+  const [nowFoods, setNowFoods] = useState([]);
+  const [selectedMenu, setSelectedMenu] = useState("null");
+  useEffect(() => {
+    setNowFoods([...foods]);
+  }, [foods]);
+  useEffect(() => {
+    if (selectedMenu === "null") setNowFoods([...foods]);
+    else setNowFoods([...foods?.filter((f) => f?.menu === selectedMenu)]);
+  }, [selectedMenu]);
 
-  const searchedProduct = products.filter((item) => {
+  const searchedProduct = nowFoods.filter((item) => {
     if (searchTerm.value === "") {
       return item;
     }
-    if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+    if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
       return item;
     } else {
       return console.log("not found");
@@ -47,18 +57,17 @@ const Menu = () => {
           </Col>
           <Col lg="6" md="6" sm="6" xs="12" className="mb-5">
             <div className="sorting__widget text-end">
-              <select className="w-50  text-white">
-                <option>All Foods</option>
-                <option value="Veg">Veg</option>
-                <option value="Non-Veg">Non-Veg</option>
-                <option value="Rice-Roti">Rice & Roti</option>
-                <option value="Chinese-Tandoori">Chinese & Tandoori</option>
+              <select className="w-50  text-white" onChange={(e) => setSelectedMenu(e.target.value)}>
+                <option value="null">All Foods</option>
+                {menus?.map((m) => {
+                  return <option value={m?.name}>{m?.name}</option>;
+                })}
               </select>
             </div>
           </Col>
 
           {displayPage.map((item) => (
-            <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
+            <Col lg="3" md="4" sm="6" xs="6" key={item._id} className="mb-4">
               <ProductCard item={item} />
             </Col>
           ))}
