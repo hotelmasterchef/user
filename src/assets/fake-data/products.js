@@ -49,29 +49,29 @@ import jeerarice from '../images/Jeerarice.png'
 export const popularMenuFood = [
   {
     id: "01",
-    title: "Paneer Butter Masala",
+    name: "Paneer Butter Masala",
     price: 95,
-    imgUrl: food_paneer_butter_masala,
+    image: food_paneer_butter_masala,
   },
   {
     id: "02",
-    title: "Chicken Lollypop",
+    name: "Chicken Lollypop",
     price: 90,
-    imgUrl: food_chicken_lolipop,
+    image: food_chicken_lolipop,
   },
 
   {
     id: "03",
-    title: "Crispy Chicken",
+    name: "Crispy Chicken",
     price: 125,
-    imgUrl: food_crispy_chicken,
+    image: food_crispy_chicken,
   },
 
   {
     id: "04",
-    title: "Veg Kadai",
+    name: "Veg Kadai",
     price: 75,
-    imgUrl: food_veg_kadai,
+    image: food_veg_kadai,
   },
 ];
 

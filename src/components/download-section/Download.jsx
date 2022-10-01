@@ -27,14 +27,14 @@ const Download = () => {
                   className="btn__apple d-flex align-items-center gap-3"
                   onClick={() => alert("We are working on it.You can order through our website too.")}
                 >
-                  <i class="ri-apple-line"></i> Apple Store
+                  <i className="ri-apple-line"></i> Apple Store
                 </button>
 
                 <button
                   onClick={() => alert("We are working on it.You can order through our website too.")}
                   className="btn__google d-flex align-items-center gap-3"
                 >
-                  <i class="ri-google-play-line"></i>
+                  <i className="ri-google-play-line"></i>
                   Google Play
                 </button>
               </div>

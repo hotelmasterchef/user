@@ -41,7 +41,7 @@ const Menu = () => {
             <div className="search__widget d-flex align-items-center justify-content-between ">
               <input autoFocus type="text" placeholder="I'm looking for...." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               <span>
-                <i class="ri-search-line"></i>
+                <i className="ri-search-line"></i>
               </span>
             </div>
           </Col>

@@ -17,17 +17,14 @@ const ChooseUs = () => {
             <div className="choose__content">
               <h4>Who we are?</h4>
               <h2>Take a look at the benefits we offer you</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                officiis impedit rem neque minus adipisci.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi officiis impedit rem neque minus adipisci.</p>
             </div>
 
             <div className="features mt-4">
               <div className="feature1 d-flex align-items-center gap-5">
                 <div className="single__feature">
                   <span>
-                    <i class="ri-truck-line"></i>
+                    <i className="ri-truck-line"></i>
                   </span>
                   <h6>Free Home Delivery</h6>
                   <p>On order above ₹500.</p>
@@ -35,7 +32,7 @@ const ChooseUs = () => {
 
                 <div className="single__feature">
                   <span className="feature__icon-two">
-                    <i class="ri-money-dollar-circle-line"></i>
+                    <i className="ri-money-dollar-circle-line"></i>
                   </span>
                   <h6>Return & Refund</h6>
                   <p>Lorem ipsum dolor sit amet.</p>
@@ -45,7 +42,7 @@ const ChooseUs = () => {
               <div className="feature1 mt-3 d-flex align-items-center gap-5">
                 <div className="single__feature">
                   <span className="feature__icon-3">
-                    <i class="ri-secure-payment-line"></i>
+                    <i className="ri-secure-payment-line"></i>
                   </span>
                   <h6>Cash On Delivery</h6>
                   <p>Pay after you get your order.</p>
@@ -53,7 +50,7 @@ const ChooseUs = () => {
 
                 <div className="single__feature">
                   <span className="feature__icon-4">
-                    <i class="ri-24-hours-line"></i>
+                    <i className="ri-24-hours-line"></i>
                   </span>
                   <h6>10 Hours Delivery Support</h6>
                   <p>11 AM to 10 PM delivery support.</p>

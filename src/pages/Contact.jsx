@@ -14,13 +14,13 @@ const Contact = () => {
             <h2>Contact Us</h2>
             <div className="mt-md-5 mt-3">
               <p className="contact_info">
-                <i class="ri-map-pin-line"></i>&nbsp;&nbsp;&nbsp;Hotel MasterChef, Tigiria
+                <i className="ri-map-pin-line"></i>&nbsp;&nbsp;&nbsp;Hotel MasterChef, Tigiria
               </p>
               <p className="contact_info">
-                <i class="ri-mail-line"></i>&nbsp;&nbsp;&nbsp;hotelmasterchef1@gmail.com
+                <i className="ri-mail-line"></i>&nbsp;&nbsp;&nbsp;hotelmasterchef1@gmail.com
               </p>
               <p className="contact_info">
-                <i class="ri-phone-line"></i>&nbsp;&nbsp;&nbsp;+91 8378938837
+                <i className="ri-phone-line"></i>&nbsp;&nbsp;&nbsp;+91 8378938837
               </p>
             </div>
           </Col>

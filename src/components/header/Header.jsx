@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./header.css";
-import Img_chefHat from '../../assets/images/chef_hat.png'
+import Img_chefHat from "../../assets/images/chef_hat.png";
 import { Container } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -46,7 +46,7 @@ const Header = () => {
               <ul className="nav__list">
                 {navLinks.map((item, index) => (
                   <li className="nav__item" key={index} onClick={menuToggle}>
-                    <Link to={item.url} >{item.display}</Link>
+                    <Link to={item.url}>{item.display}</Link>
                   </li>
                 ))}
               </ul>
@@ -54,7 +54,7 @@ const Header = () => {
                 <div className="custom__search ">
                   <input type="text" placeholder="search item...." />
                   <span>
-                    <i class="ri-search-line"></i>
+                    <i className="ri-search-line"></i>
                   </span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const Header = () => {
 
           <div>
             <span className="cart__icon">
-              <i class="ri-shopping-basket-line"></i>
+              <i className="ri-shopping-basket-line"></i>
 
               <span className="badge"></span>
             </span>
@@ -71,7 +71,7 @@ const Header = () => {
 
           <div className="mobile__menu">
             <span>
-              <i class="ri-menu-line" onClick={menuToggle}></i>
+              <i className="ri-menu-line" onClick={menuToggle}></i>
             </span>
           </div>
         </div>

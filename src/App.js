@@ -11,9 +11,7 @@ import { Alert, Spinner } from "reactstrap";
 import { useEffect } from "react";
 
 function App() {
-  const { loading, fetchAll, menus, foods } = useGlobalContext();
-  console.log(menus);
-  console.log(foods);
+  const { loading, fetchAll } = useGlobalContext();
   useEffect(() => {
     fetchAll();
   }, []);

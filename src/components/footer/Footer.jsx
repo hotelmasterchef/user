@@ -44,17 +44,17 @@ const Footer = () => {
               <ListGroup>
                 <ListGroupItem className="link__item">
                   <a href="#" target="_blank" className=" link_hover d-flex align-items-center gap-3">
-                    <i class="ri-facebook-circle-line link_hover"></i> Facebook
+                    <i className="ri-facebook-circle-line link_hover"></i> Facebook
                   </a>
                 </ListGroupItem>
                 <ListGroupItem className="link__item">
                   <a href="#" target="_blank" className="link_hover d-flex align-items-center gap-3">
-                    <i class="ri-instagram-line link_hover"></i> Instagram
+                    <i className="ri-instagram-line link_hover"></i> Instagram
                   </a>
                 </ListGroupItem>
                 <ListGroupItem className="link__item">
                   <a href="#" target="_blank" className="link_hover d-flex align-items-center gap-3">
-                    <i class="ri-youtube-line link_hover"></i> Youtube
+                    <i className="ri-youtube-line link_hover"></i> Youtube
                   </a>
                 </ListGroupItem>
               </ListGroup>
@@ -66,19 +66,19 @@ const Footer = () => {
               <ListGroup>
                 <ListGroupItem className="link__item">
                   <a className="d-flex align-items-center gap-3 link_hover" target="_blank" href="https://maps.app.goo.gl/2GxjA7c2SHFhGGow9">
-                    <i class="ri-map-pin-line"></i> Hotel MasterChef, Tigiria
+                    <i className="ri-map-pin-line"></i> Hotel MasterChef, Tigiria
                   </a>
                 </ListGroupItem>
 
                 <ListGroupItem className="link__item d-flex align-items-center gap-3">
                   <a className="d-flex align-items-center gap-3 link_hover" href="mailto:hotelmasterchef1@gmail.com">
-                    <i class="ri-mail-line"></i> hotelmasterchef1@gmail.com
+                    <i className="ri-mail-line"></i> hotelmasterchef1@gmail.com
                   </a>
                 </ListGroupItem>
 
                 <ListGroupItem className="link__item  gap-3">
                   <a className="d-flex align-items-center gap-3 link_hover" href="tel:+918378938837">
-                    <i class="ri-phone-line"></i> +91 8378938837
+                    <i className="ri-phone-line"></i> +91 8378938837
                   </a>
                   <a className="d-flex align-items-center gap-4 link_hover" href="tel:+919130328398">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 9130328398

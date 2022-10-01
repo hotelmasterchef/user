@@ -21,20 +21,28 @@ const AppProvider = ({ children }) => {
       .get()
       .then((docs) => {
         docs.forEach((doc) => {
-          arr.push(doc.data());
+          arr.push({ ...doc.data(), food: [] });
         });
-        console.log(arr);
         setMenus([...arr]);
         setLoading(false);
         setLoading(true);
         let arr2 = [];
         foodsRef
           .get()
-          .then((docs) => {
-            docs.forEach((doc) => {
+          .then((docs2) => {
+            docs2.forEach((doc) => {
               arr2.push(doc.data());
             });
             setFoods([...arr2]);
+            let nowMenu = [...arr];
+            arr?.forEach((m, m_idx) => {
+              let filterF = arr2?.filter((f) => f?.menu === m?.name);
+              nowMenu[m_idx] = {
+                ...m,
+                food: filterF,
+              };
+            });
+            setMenus([...nowMenu]);
             setLoading(false);
           })
           .catch((err) => {
