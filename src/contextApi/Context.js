@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [menus, setMenus] = useState([]);
   const [foods, setFoods] = useState([]);
+  const [cartProduct,setCartProduct] = useState([])
 
   const fetchAll = async () => {
     setLoading(true);
@@ -79,6 +80,8 @@ const AppProvider = ({ children }) => {
         menus,
         setMenus,
         fetchAll,
+        cartProduct,
+        setCartProduct
       }}
     >
       {children}

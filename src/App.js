@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import { useGlobalContext } from "./contextApi/Context";
 import { Alert, Spinner } from "reactstrap";
 import { useEffect } from "react";
+import Cart from "./pages/Cart";
 
 function App() {
   const { loading, fetchAll } = useGlobalContext();
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/menu" element={<Menu />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/cart" element={<Cart />} />
           </Routes>
           <Footer />
         </>

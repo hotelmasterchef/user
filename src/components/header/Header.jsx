@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./header.css";
 import Img_chefHat from "../../assets/images/chef_hat.png";
 import { Container } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const navLinks = [
   {
@@ -25,6 +25,7 @@ const navLinks = [
 
 const Header = () => {
   const menuRef = useRef();
+  const navigate = useNavigate();
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
 
@@ -62,10 +63,10 @@ const Header = () => {
           </div>
 
           <div>
-            <span className="cart__icon">
+            <span className="cart__icon cp" onClick={() => navigate("/cart")}>
               <i className="ri-shopping-basket-line"></i>
 
-              <span className="badge"></span>
+              <span className="badge">0</span>
             </span>
           </div>
 
