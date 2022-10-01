@@ -62,8 +62,31 @@ i {
     font-size: 1.4rem;
   }
 }
-.link_hover:hover{
+.link_hover:hover {
   color: #f5b70a;
+}
+.loader_home {
+  background-color: rgba(63, 62, 62, 0.453);
+  height: 100%;
+  width: 100%;
+  z-index: 9999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert_container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 99999990;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 40px;
 }
 /* /////////////////////////////
 ///////////// Menu //////////////

@@ -16,6 +16,7 @@ import "./menu-pack.css";
 const MenuPack = () => {
   const [filter, setFilter] = useState("Non-Veg");
   const [products, setProducts] = useState(riceMenuProducts);
+  
 
   useEffect(() => {
     if (filter === "Veg") {

@@ -8,9 +8,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 import App from "./App";
 
+import AppProvider from "./contextApi/Context";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
