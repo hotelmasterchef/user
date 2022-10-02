@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.f28385c4.chunk.css",
-    "main.js": "/static/js/main.20fbd03e.chunk.js",
-    "main.js.map": "/static/js/main.20fbd03e.chunk.js.map",
+    "main.css": "/static/css/main.c055eee1.chunk.css",
+    "main.js": "/static/js/main.00183f3b.chunk.js",
+    "main.js.map": "/static/js/main.00183f3b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.55142f37.js",
     "runtime-main.js.map": "/static/js/runtime-main.55142f37.js.map",
     "static/css/2.887726fe.chunk.css": "/static/css/2.887726fe.chunk.css",
-    "static/js/2.d457dac9.chunk.js": "/static/js/2.d457dac9.chunk.js",
-    "static/js/2.d457dac9.chunk.js.map": "/static/js/2.d457dac9.chunk.js.map",
+    "static/js/2.c9eb39c5.chunk.js": "/static/js/2.c9eb39c5.chunk.js",
+    "static/js/2.c9eb39c5.chunk.js.map": "/static/js/2.c9eb39c5.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.887726fe.chunk.css.map": "/static/css/2.887726fe.chunk.css.map",
-    "static/css/main.f28385c4.chunk.css.map": "/static/css/main.f28385c4.chunk.css.map",
-    "static/js/2.d457dac9.chunk.js.LICENSE.txt": "/static/js/2.d457dac9.chunk.js.LICENSE.txt",
+    "static/css/main.c055eee1.chunk.css.map": "/static/css/main.c055eee1.chunk.css.map",
+    "static/js/2.c9eb39c5.chunk.js.LICENSE.txt": "/static/js/2.c9eb39c5.chunk.js.LICENSE.txt",
     "static/media/Jeerarice.ba008c56.png": "/static/media/Jeerarice.ba008c56.png",
     "static/media/app.4e53622c.png": "/static/media/app.4e53622c.png",
     "static/media/bread(1).2fbb5c91.png": "/static/media/bread(1).2fbb5c91.png",
@@ -28,6 +28,7 @@
     "static/media/food_crispy_chicken.788e929b.png": "/static/media/food_crispy_chicken.788e929b.png",
     "static/media/food_paneer_butter_masala.25ce4a91.png": "/static/media/food_paneer_butter_masala.25ce4a91.png",
     "static/media/food_veg_kadai.78cbbd87.png": "/static/media/food_veg_kadai.78cbbd87.png",
+    "static/media/map.73948584.png": "/static/media/map.73948584.png",
     "static/media/owner.69d924ee.jpeg": "/static/media/owner.69d924ee.jpeg",
     "static/media/pasta.0710b65f.png": "/static/media/pasta.0710b65f.png",
     "static/media/pizza1.654c0ad4.png": "/static/media/pizza1.654c0ad4.png",
@@ -57,8 +58,8 @@
   "entrypoints": [
     "static/js/runtime-main.55142f37.js",
     "static/css/2.887726fe.chunk.css",
-    "static/js/2.d457dac9.chunk.js",
-    "static/css/main.f28385c4.chunk.css",
-    "static/js/main.20fbd03e.chunk.js"
+    "static/js/2.c9eb39c5.chunk.js",
+    "static/css/main.c055eee1.chunk.css",
+    "static/js/main.00183f3b.chunk.js"
   ]
 }
