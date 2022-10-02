@@ -13,7 +13,12 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [menus, setMenus] = useState([]);
   const [foods, setFoods] = useState([]);
-  const [cartProduct, setCartProduct] = useState([...JSON.parse(localStorage.getItem("cart"))]);
+  const [cartProduct, setCartProduct] = useState([]);
+  useEffect(() => {
+    let d = JSON.parse(localStorage.getItem("cart"));
+    if (d) setCartProduct([...d]);
+  }, []);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartProduct));
   }, [cartProduct]);
@@ -91,7 +96,7 @@ const AppProvider = ({ children }) => {
         setCartProduct,
         removeFromCart,
         locaitonList,
-        setLocationList
+        setLocationList,
       }}
     >
       {children}
