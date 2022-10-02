@@ -3,6 +3,7 @@ import "./header.css";
 import Img_chefHat from "../../assets/images/chef_hat.png";
 import { Container } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../contextApi/Context";
 
 const navLinks = [
   {
@@ -26,6 +27,7 @@ const navLinks = [
 const Header = () => {
   const menuRef = useRef();
   const navigate = useNavigate();
+  const { cartProduct } = useGlobalContext();
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
 
@@ -64,9 +66,11 @@ const Header = () => {
 
           <div>
             <span className="cart__icon cp" onClick={() => navigate("/cart")}>
-              <i className="ri-shopping-basket-line"></i>
+              <i className="ri-shopping-basket-line" style={{color: "#dcd9d9"}}></i>
 
-              <span className="badge">0</span>
+              <span className="badge" style={{ color: "#fff" }}>
+                {cartProduct?.length}
+              </span>
             </span>
           </div>
 

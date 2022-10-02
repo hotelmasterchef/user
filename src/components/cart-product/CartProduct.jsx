@@ -1,52 +1,51 @@
 import React, { useState, useEffect } from "react";
+import { useGlobalContext } from "../../contextApi/Context";
 
-const CartProduct = ({ data }) => {
-  const [productCount, setProductCount] = useState(1);
-  const handleRemoveProduct = () => {};
-  return <section id="cart_product">
-          PRODUCT
-        </section>;
+const CartProduct = ({ data, d_idex }) => {
+  const [productCount, setProductCount] = useState(data?.quantity);
+  const { removeFromCart, cartProduct, setCartProduct } = useGlobalContext();
+  useEffect(() => {
+    let nowCartg = cartProduct;
+    nowCartg[d_idex] = {
+      ...nowCartg[d_idex],
+      quantity: productCount,
+    };
+    setCartProduct([...nowCartg]);
+  }, [productCount]);
+
+  return (
+    <div className="cp_p">
+      <img src={data?.image} className="p_img" alt="food_image" />
+      <div className="detail_cp">
+        <h6>{data?.name}</h6>
+        <h3>₹{data?.price * productCount}</h3>
+        <div className="quant_btn">
+          <button
+            onClick={() => {
+              if (productCount > 1) {
+                setProductCount(productCount - 1);
+              }
+            }}
+          >
+            -
+          </button>
+          <span>{productCount}</span>
+          <button
+            onClick={() => {
+              if (productCount <= 9) {
+                setProductCount(productCount + 1);
+              }
+            }}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div className="delte_bt_p">
+        <i className="ri-delete-bin-5-line" onClick={() => removeFromCart(data?._id)} style={{ color: "red" }}></i>
+      </div>
+    </div>
+  );
 };
 
 export default CartProduct;
-
-//   <Grid container>
-//     <Grid item xs={3}>
-//       <section className="image_section">
-//         <img src={data?.img[0]} className="product_img" alt="" />
-//         <section className="quantity_section">
-//           <button
-//             onClick={() => {
-//               if (productCount > 1) {
-//                 setProductCount(productCount - 1);
-//               }
-//             }}
-//           >
-//             -
-//           </button>
-//           <input type="number" value={productCount} min="1" max="9" />
-//           <button
-//             onClick={() => {
-//               if (productCount <= 9) {
-//                 setProductCount(productCount + 1);
-//               }
-//             }}
-//           >
-//             +
-//           </button>
-//         </section>
-//       </section>
-//     </Grid>
-//     <Grid item xs={9}>
-//       <p className="title">{data?.title}</p>
-//       <p className="seller">Seller:{data?.seller}</p>
-//       <p className="detail_price">
-//         ₹ {data?.discount}&nbsp;&nbsp;&nbsp;&nbsp;
-//         <strike>₹ {data?.price}</strike>
-//       </p>
-//       <p className="stock">Only {data?.stock} left in stock.</p>
-//       <Button className="remove_button" onClick={handleRemoveProduct}>
-//         Remove
-//       </Button>
-//     </Grid>
-//   </Grid>

@@ -13,8 +13,15 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [menus, setMenus] = useState([]);
   const [foods, setFoods] = useState([]);
-  const [cartProduct,setCartProduct] = useState([])
-
+  const [cartProduct, setCartProduct] = useState([...JSON.parse(localStorage.getItem("cart"))]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProduct));
+  }, [cartProduct]);
+  const removeFromCart = (id) => {
+    let nowCart = cartProduct?.filter((cp) => cp?._id !== id);
+    setCartProduct([...nowCart]);
+  };
+  const [locaitonList, setLocationList] = useState([]);
   const fetchAll = async () => {
     setLoading(true);
     let arr = [];
@@ -81,7 +88,10 @@ const AppProvider = ({ children }) => {
         setMenus,
         fetchAll,
         cartProduct,
-        setCartProduct
+        setCartProduct,
+        removeFromCart,
+        locaitonList,
+        setLocationList
       }}
     >
       {children}

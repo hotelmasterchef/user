@@ -88,7 +88,7 @@ i {
   left: 0;
   padding-top: 40px;
 }
-.cp{
+.cp {
   cursor: pointer;
 }
 /* /////////////////////////////
@@ -220,6 +220,123 @@ i {
   align-items: center;
   flex-direction: column;
 }
-.empty_section h3{
+.empty_section h3 {
   color: #c4c4c4;
+}
+.cp_p {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 5px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed white;
+  color: white;
+  position: relative;
+}
+.cp_p .p_img {
+  height: 140px;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.cp_p .detail_cp {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  padding-left: 20px;
+  flex-direction: column;
+}
+.cp_p .detail_cp .quant_btn {
+  margin-top: 10px;
+  padding: 4px 0px;
+  border-radius: 8px;
+  border: 1px solid white;
+  width: fit-content;
+}
+.cp_p .detail_cp .quant_btn button {
+  width: 25px;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  margin: 0 8px;
+}
+.delte_bt_p {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%, 0);
+  cursor: pointer;
+}
+.p_detail_c {
+  color: white;
+  background-color: #0a071a;
+  padding: 10px;
+}
+.p_detail_c td {
+  padding: 10px 0;
+}
+.p_detail_c button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f5b70a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cart_top {
+  margin: 20px 0px;
+  padding-top: 50px;
+}
+.clickable_label{
+  background-color: #212245;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  height: 60px;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+.clickable_label h3{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0;
+}
+.conntinue_btn{
+  float: right;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: #f5b70a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.address_options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+}
+.address_options label{
+  color: white;
+  margin-left: 20px;
+}
+.address_input{
+  width: 100%;
+  outline: none;
+  background: #0a071a;
+  color: white;
+  padding: 7px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .cart_top {
+    margin: 20px 0px;
+    padding-top: 20px;
+  }
 }
