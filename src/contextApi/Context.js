@@ -17,6 +17,8 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     let d = JSON.parse(localStorage.getItem("cart"));
     if (d) setCartProduct([...d]);
+    let adrs = JSON.parse(localStorage.getItem("addressList"));
+    if (adrs) setLocationList([...adrs]);
   }, []);
 
   useEffect(() => {

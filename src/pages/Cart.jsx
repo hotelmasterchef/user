@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import { useGlobalContext } from "../contextApi/Context";
 import CartProduct from "../components/cart-product/CartProduct";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
 import map from "../assets/images/map.png";
+import { useToasts } from "react-toast-notifications";
 
 const Cart = () => {
+  const { addToast } = useToasts();
   const navigate = useNavigate();
+  const bottomRef = useRef();
   const { cartProduct, setCartProduct, locaitonList, setLocationList } = useGlobalContext();
   const [totalPrice, setTotalPrice] = useState(0);
   const [gstPrice, setGstPrice] = useState(0);
@@ -32,11 +33,41 @@ const Cart = () => {
     if (tPN > 499) setDelivery(0);
   }, [cartProduct]);
   const handleAddLocation = () => {
-    if(locationName === "" || locationMobile === "" || locationAddress === "")
-    {
-      
+    if (locationName === "" || locationMobile === "" || locationAddress === "") {
+      addToast("Please enter all fields.", { appearance: "error" });
+      return;
     }
+    setLocationList([
+      ...locaitonList,
+      {
+        name: locationName,
+        mobile: locationMobile,
+        address: locationAddress,
+      },
+    ]);
+    localStorage.setItem(
+      "addressList",
+      JSON.stringify([
+        ...locaitonList,
+        {
+          name: locationName,
+          mobile: locationMobile,
+          address: locationAddress,
+        },
+      ])
+    );
+    setLocationName("");
+    setLocationMobile("");
+    setLocationAddress("");
+    setAddNew(false);
   };
+  const removeAddress = (idx) => {
+    let nowadrs = locaitonList?.filter((l, lid) => lid !== idx);
+    setLocationList([...nowadrs]);
+    localStorage.setItem("addressList", JSON.stringify([...nowadrs]));
+  };
+  const executeScroll = () => bottomRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
   return (
     <Container
       style={{
@@ -49,7 +80,7 @@ const Cart = () => {
       </div>
       <Row>
         <Col sm="8" xs="12">
-          <div className="clickable_label" onClick={() => setItemsDrop(!itemsDrop)}>
+          <div ref={bottomRef} className="clickable_label" onClick={() => setItemsDrop(!itemsDrop)}>
             <h3>Items({cartProduct.length})</h3>
             <span style={{ transform: itemsDrop ? "rotate(90deg)" : "rotate(-90deg)" }}>
               <i class="ri-play-mini-fill"></i>
@@ -75,6 +106,9 @@ const Cart = () => {
                     onClick={() => {
                       setItemsDrop(false);
                       setAddressDrop(true);
+                      setTimeout(() => {
+                        executeScroll();
+                      }, 200);
                     }}
                   >
                     Continue
@@ -97,8 +131,16 @@ const Cart = () => {
               {locaitonList?.map((l, l_idx) => {
                 return (
                   <div className="address_options">
-                    <input type="radio" id={l_idx} name="age" value="30" />
-                    <label for={l_idx}>{l?.address}</label>
+                    <div>
+                      <input type="radio" id={l_idx} name="age" value="30" />
+                      <label for={l_idx} style={{ textAlign: "left" }}>
+                        {l?.name}, {l?.mobile}
+                        <br />
+                        {l?.address}
+                        <br />
+                      </label>
+                    </div>
+                    <i className="ri-delete-bin-5-line cp" onClick={() => removeAddress(l_idx)} style={{ color: "red" }}></i>
                   </div>
                 );
               })}
