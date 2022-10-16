@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { menusRef, foodsRef } from "../config/firebase";
+import axios from "axios";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -14,6 +15,8 @@ const AppProvider = ({ children }) => {
   const [menus, setMenus] = useState([]);
   const [foods, setFoods] = useState([]);
   const [cartProduct, setCartProduct] = useState([]);
+  const [popularFoods, setPopularFoods] = useState([]);
+
   useEffect(() => {
     let d = JSON.parse(localStorage.getItem("cart"));
     if (d) setCartProduct([...d]);
@@ -31,52 +34,58 @@ const AppProvider = ({ children }) => {
   const [locaitonList, setLocationList] = useState([]);
   const fetchAll = async () => {
     setLoading(true);
-    let arr = [];
-    menusRef
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          arr.push({ ...doc.data(), food: [] });
-        });
-        setMenus([...arr]);
-        setLoading(false);
-        setLoading(true);
-        let arr2 = [];
-        foodsRef
-          .get()
-          .then((docs2) => {
-            docs2.forEach((doc) => {
-              arr2.push(doc.data());
-            });
-            setFoods([...arr2]);
-            let nowMenu = [...arr];
-            arr?.forEach((m, m_idx) => {
-              let filterF = arr2?.filter((f) => f?.menu === m?.name);
-              nowMenu[m_idx] = {
-                ...m,
-                food: filterF,
-              };
-            });
-            setMenus([...nowMenu]);
-            setLoading(false);
-          })
-          .catch((err) => {
-            setAlert({
-              flag: true,
-              type: "error",
-              msg: err.message,
-            });
-            setLoading(false);
-          });
-      })
-      .catch((err) => {
-        setAlert({
-          flag: true,
-          type: "error",
-          msg: err.message,
-        });
-        setLoading(false);
-      });
+    const response = await axios("https://raw.githubusercontent.com/hotelmasterchefdatabase/data/main/data.json");
+    setLoading(false);
+    console.log(response);
+    setFoods([...response?.data?.foods]);
+    setMenus([...response?.data?.menus]);
+    setPopularFoods([...response?.data?.popularFoods]);
+    // let arr = [];
+    // menusRef
+    //   .get()
+    //   .then((docs) => {
+    //     docs.forEach((doc) => {
+    //       arr.push({ ...doc.data(), food: [] });
+    //     });
+    //     setMenus([...arr]);
+    //     setLoading(false);
+    //     setLoading(true);
+    //     let arr2 = [];
+    //     foodsRef
+    //       .get()
+    //       .then((docs2) => {
+    //         docs2.forEach((doc) => {
+    //           arr2.push(doc.data());
+    //         });
+    //         setFoods([...arr2]);
+    //         let nowMenu = [...arr];
+    //         arr?.forEach((m, m_idx) => {
+    //           let filterF = arr2?.filter((f) => f?.menu === m?.name);
+    //           nowMenu[m_idx] = {
+    //             ...m,
+    //             food: filterF,
+    //           };
+    //         });
+    //         setMenus([...nowMenu]);
+    //         setLoading(false);
+    //       })
+    //       .catch((err) => {
+    //         setAlert({
+    //           flag: true,
+    //           type: "error",
+    //           msg: err.message,
+    //         });
+    //         setLoading(false);
+    //       });
+    //   })
+    //   .catch((err) => {
+    //     setAlert({
+    //       flag: true,
+    //       type: "error",
+    //       msg: err.message,
+    //     });
+    //     setLoading(false);
+    //   });
   };
   return (
     <AppContext.Provider
@@ -99,6 +108,8 @@ const AppProvider = ({ children }) => {
         removeFromCart,
         locaitonList,
         setLocationList,
+        setPopularFoods,
+        popularFoods,
       }}
     >
       {children}

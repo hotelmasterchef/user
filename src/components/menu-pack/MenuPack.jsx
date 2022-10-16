@@ -3,27 +3,29 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import ProductCard from "../product-card/ProductCard";
-import { vegFoodProducts, fastFoodProducts, riceMenuProducts, pizzaProducts, dessertProducts, coffeeProducts } from "../../assets/fake-data/products";
 import "./menu-pack.css";
 import { useGlobalContext } from "../../contextApi/Context";
 
 const MenuPack = () => {
   const [filter, setFilter] = useState({
     name: "Veg",
-    idx: 0,
+    idx: 1,
   });
-  const [products, setProducts] = useState(riceMenuProducts);
-  const { menus } = useGlobalContext();
+  const [products, setProducts] = useState([]);
+  const { menus, foods } = useGlobalContext();
   useEffect(() => {
     if (menus?.length > 0)
       setFilter({
-        name: menus[0]?.name,
-        idx: 0,
+        name: menus[1]?.name,
+        idx: 1,
       });
   }, [menus]);
 
   useEffect(() => {
-    if (menus[filter?.idx] !== undefined) setProducts([...menus[filter?.idx]?.food]);
+    if (menus[filter?.idx] !== undefined) {
+      let filterFoods = foods?.filter((f) => menus[filter?.idx]?._id === f?.menu);
+      setProducts([...filterFoods]);
+    }
   }, [filter]);
 
   return (
@@ -49,11 +51,15 @@ const MenuPack = () => {
             ))}
           </Col>
 
-          {products.map((item) => (
-            <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
-              <ProductCard item={item} />
-            </Col>
-          ))}
+          {products.map((item, itme_idx) => {
+            if ([0, 1, 2, 3, 4, 5, 6, 7]?.includes(itme_idx)) {
+              return (
+                <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
+                  <ProductCard item={item} />
+                </Col>
+              );
+            }
+          })}
         </Row>
       </Container>
     </section>
