@@ -234,6 +234,7 @@ i {
 }
 .cp_p .p_img {
   height: 140px;
+  max-width: 140px;
   margin-top: 0 !important;
   padding-top: 0 !important;
 }

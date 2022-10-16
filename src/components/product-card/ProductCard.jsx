@@ -1,8 +1,10 @@
 import React from "react";
 import { useGlobalContext } from "../../contextApi/Context";
 import "./product-card.css";
+import { useToasts } from "react-toast-notifications";
 
 const ProductCard = (props) => {
+  const { addToast } = useToasts();
   const { name, image, price, _id } = props.item;
   const { cartProduct, setCartProduct } = useGlobalContext();
   return (
@@ -41,8 +43,8 @@ const ProductCard = (props) => {
               let findD = cartProduct?.filter((c) => c?._id === _id);
               if (findD?.length === 0) {
                 setCartProduct([...cartProduct, { ...props.item, quantity: 1 }]);
-                alert("Item successfully added to cart.");
-              } else alert("Item already added to cart.");
+                addToast("Item successfully added to cart.", { appearance: "success" });
+              } else addToast("Item already added to cart.", { appearance: "error" });
             }}
           >
             +<i className="ri-shopping-cart-line"></i>

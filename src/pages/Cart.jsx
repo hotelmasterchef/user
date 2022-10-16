@@ -16,6 +16,9 @@ const Cart = () => {
   const [itemsDrop, setItemsDrop] = useState(true);
   const [addressDrop, setAddressDrop] = useState(false);
   const [addNew, setAddNew] = useState(false);
+  const [locationName, setLocationName] = useState("");
+  const [locationMobile, setLocationMobile] = useState("");
+  const [locationAddress, setLocationAddress] = useState("");
   useEffect(() => {
     setTotalPrice(0);
     setDelivery(20);
@@ -28,7 +31,12 @@ const Cart = () => {
     setTotalPrice(tPN);
     if (tPN > 499) setDelivery(0);
   }, [cartProduct]);
-
+  const handleAddLocation = () => {
+    if(locationName === "" || locationMobile === "" || locationAddress === "")
+    {
+      
+    }
+  };
   return (
     <Container
       style={{
@@ -86,22 +94,14 @@ const Cart = () => {
           </div>
           {addressDrop ? (
             <>
-              {locaitonList?.map((l,l_idx) => {
+              {locaitonList?.map((l, l_idx) => {
                 return (
                   <div className="address_options">
                     <input type="radio" id={l_idx} name="age" value="30" />
-                    <label for={l_idx} >{l?.address}</label>
+                    <label for={l_idx}>{l?.address}</label>
                   </div>
                 );
               })}
-              <div className="address_options">
-                <input type="radio" id="age1" name="age" value="30" />
-                <label for="age1">0 - 30</label>
-              </div>
-              <div className="address_options">
-                <input type="radio" id="age2" name="age" value="60" />
-                <label for="age2">31 - 60</label>
-              </div>
               <div style={{ padding: "0px 20px " }}>
                 {addNew ? (
                   <>
@@ -113,21 +113,40 @@ const Cart = () => {
                         <label htmlFor="" style={{ color: "white" }}>
                           Name
                         </label>
-                        <input type="text" placeholder="Enter your name" className="address_input" />
+                        <input
+                          value={locationName}
+                          onChange={(e) => setLocationName(e.target.value)}
+                          type="text"
+                          placeholder="Enter your name"
+                          className="address_input"
+                        />
                       </FormGroup>
                       <FormGroup>
                         <label htmlFor="" style={{ color: "white" }}>
                           Mobile Number
                         </label>
-                        <input type="text" placeholder="Enter your Mobile Number" className="address_input" />
+                        <input
+                          type="number"
+                          value={locationMobile}
+                          onChange={(e) => setLocationMobile(e.target.value)}
+                          placeholder="Enter your Mobile Number"
+                          className="address_input"
+                        />
                       </FormGroup>
                       <FormGroup>
                         <label htmlFor="" style={{ color: "white" }}>
                           Address
                         </label>
-                        <textarea placeholder="Enter your full address" className="address_input" />
+                        <textarea
+                          value={locationAddress}
+                          onChange={(e) => setLocationAddress(e.target.value)}
+                          placeholder="Enter your full address"
+                          className="address_input"
+                        />
                       </FormGroup>
-                      <Button type="button">Submit</Button>
+                      <Button type="button" onClick={(e) => handleAddLocation()}>
+                        Submit
+                      </Button>
                     </Form>
                   </>
                 ) : (

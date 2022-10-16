@@ -7,7 +7,7 @@ import Footer from "./components/footer/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { useGlobalContext } from "./contextApi/Context";
-import { Alert, Spinner } from "reactstrap";
+import { Spinner } from "reactstrap";
 import { useEffect } from "react";
 import Cart from "./pages/Cart";
 
@@ -20,11 +20,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      {/* <div className="alert_container">
-        <div>
-          <Alert color="primary">Hey! Pay attention.</Alert>
-        </div>
-      </div> */}
       {loading ? (
         <>
           <div className="loader_home">

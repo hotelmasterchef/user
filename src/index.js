@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ToastProvider } from "react-toast-notifications";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "remixicon/fonts/remixicon.css";
@@ -13,7 +14,9 @@ import AppProvider from "./contextApi/Context";
 ReactDOM.render(
   <React.StrictMode>
     <AppProvider>
-      <App />
+      <ToastProvider transitionDuration={220} autoDismiss autoDismissTimeout={5000} placement="top-center">
+        <App />
+      </ToastProvider>
     </AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
