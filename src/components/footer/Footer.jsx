@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-import Img_chefHat from "../../assets/images/chef_hat.png";
+import Img_chefHat from "../../assets/images/logo.png";
 
 const footerDeliveryTime = ["Monday - Saturday", "11:00am - 09:00pm", "Sunday - Off Day"];
 
@@ -17,7 +17,6 @@ const Footer = () => {
                   <span>
                     <img src={Img_chefHat} alt="logo" className="logo_img_footer" />
                   </span>
-                  MasterChef
                 </h2>
                 <p>
                   MasterChef is based on the principle "Indian food, infused with spices and delicate flavours made from the right ingredients, delights not

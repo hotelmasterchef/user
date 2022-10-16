@@ -87,7 +87,7 @@
   font-weight: 700;
 }
 .logo_img {
-  height: 63px;
+  height: 44px;
 }
 
 /* ==========  make it responsive ========= */
@@ -153,6 +153,6 @@
     display: block;
   }
   .logo_img {
-    height: 50px;
+    height: 30px;
   }
 }

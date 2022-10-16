@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./header.css";
-import Img_chefHat from "../../assets/images/chef_hat.png";
+import Img_chefHat from "../../assets/images/logo.png";
 import { Container } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../contextApi/Context";
@@ -40,7 +40,6 @@ const Header = () => {
               <span>
                 <img src={Img_chefHat} alt="logo" className="logo_img" />
               </span>
-              MasterChef
             </h2>
           </div>
 
