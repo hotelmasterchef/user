@@ -1,11 +1,16 @@
 import React from "react";
+import { useEffect } from "react";
 
 import { Container, Row, Col } from "reactstrap";
 import { popularMenuFood } from "../../assets/fake-data/products";
+import { useGlobalContext } from "../../contextApi/Context";
 import ProductCard from "../product-card/ProductCard";
 import "./popular-menu.css";
 
 const PopularMenu = () => {
+  const { popularFoods, foods } = useGlobalContext();
+  useEffect(() => {}, [popularFoods]);
+
   return (
     <section className="pt-0">
       <Container>
@@ -14,11 +19,15 @@ const PopularMenu = () => {
             <h2 className="popular__menu-title">Popular food menu</h2>
           </Col>
 
-          {popularMenuFood.map((item) => (
-            <Col lg="3" md="4" sm="6" xs="6" className="mb-4" key={item.id}>
-              <ProductCard item={item} />
-            </Col>
-          ))}
+          {foods.map((item) => {
+            if (popularFoods?.includes(item?._id)) {
+              return (
+                <Col lg="3" md="4" sm="6" xs="6" className="mb-4" key={item.id}>
+                  <ProductCard item={item} />
+                </Col>
+              );
+            }
+          })}
         </Row>
       </Container>
     </section>

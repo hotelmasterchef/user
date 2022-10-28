@@ -15,7 +15,6 @@ import dessert04 from "../images/dessert3.png";
 
 import coffeeImg02 from "../images/coffe2.png";
 
-import salad from "../images/slider2.png";
 
 // all images imported from images directory
 import product_01_image_01 from "../images/product_01.jpg";
@@ -132,57 +131,6 @@ export const fastFoodProducts = [
     title: "Grill Chicken",
     price: 195,
     imgUrl: fastFood04,
-  },
-];
-
-export const riceMenuProducts = [
-  {
-    id: "12",
-    title: "Fried Rice",
-    price: 95,
-    imgUrl: salad,
-  },
-  {
-    id: "14",
-    title: "Vegetable",
-    price: 250,
-    imgUrl: salad,
-  },
-  {
-    id: "15",
-    title: "Vegetable Salad",
-    price: 195,
-    imgUrl: salad,
-  },
-  {
-    id: "16",
-    title: "Meal",
-    price: 275,
-    imgUrl: salad,
-  },
-  {
-    id: "17",
-    title: "Fried Rice",
-    price: 95,
-    imgUrl: salad,
-  },
-  {
-    id: "18",
-    title: "Vegetable",
-    price: 250,
-    imgUrl: salad,
-  },
-  {
-    id: "19",
-    title: "Vegetable Salad",
-    price: 195,
-    imgUrl: salad,
-  },
-  {
-    id: "20",
-    title: "Meal",
-    price: 275,
-    imgUrl: salad,
   },
 ];
 

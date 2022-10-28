@@ -35,7 +35,7 @@ const ChooseUs = () => {
                     <i className="ri-money-dollar-circle-line"></i>
                   </span>
                   <h6>Return & Refund</h6>
-                  <p>Lorem ipsum dolor sit amet.</p>
+                  <p>We don't give return or refund.</p>
                 </div>
               </div>
 

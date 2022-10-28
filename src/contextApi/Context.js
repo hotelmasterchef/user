@@ -16,6 +16,7 @@ const AppProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
   const [cartProduct, setCartProduct] = useState([]);
   const [popularFoods, setPopularFoods] = useState([]);
+  const [banners, setBanners] = useState([]);
 
   useEffect(() => {
     let d = JSON.parse(localStorage.getItem("cart"));
@@ -36,56 +37,10 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     const response = await axios("https://raw.githubusercontent.com/hotelmasterchefdatabase/data/main/data.json");
     setLoading(false);
-    console.log(response);
     setFoods([...response?.data?.foods]);
     setMenus([...response?.data?.menus]);
     setPopularFoods([...response?.data?.popularFoods]);
-    // let arr = [];
-    // menusRef
-    //   .get()
-    //   .then((docs) => {
-    //     docs.forEach((doc) => {
-    //       arr.push({ ...doc.data(), food: [] });
-    //     });
-    //     setMenus([...arr]);
-    //     setLoading(false);
-    //     setLoading(true);
-    //     let arr2 = [];
-    //     foodsRef
-    //       .get()
-    //       .then((docs2) => {
-    //         docs2.forEach((doc) => {
-    //           arr2.push(doc.data());
-    //         });
-    //         setFoods([...arr2]);
-    //         let nowMenu = [...arr];
-    //         arr?.forEach((m, m_idx) => {
-    //           let filterF = arr2?.filter((f) => f?.menu === m?.name);
-    //           nowMenu[m_idx] = {
-    //             ...m,
-    //             food: filterF,
-    //           };
-    //         });
-    //         setMenus([...nowMenu]);
-    //         setLoading(false);
-    //       })
-    //       .catch((err) => {
-    //         setAlert({
-    //           flag: true,
-    //           type: "error",
-    //           msg: err.message,
-    //         });
-    //         setLoading(false);
-    //       });
-    //   })
-    //   .catch((err) => {
-    //     setAlert({
-    //       flag: true,
-    //       type: "error",
-    //       msg: err.message,
-    //     });
-    //     setLoading(false);
-    //   });
+    setBanners([...response?.data?.banners]);
   };
   return (
     <AppContext.Provider
@@ -110,6 +65,8 @@ const AppProvider = ({ children }) => {
         setLocationList,
         setPopularFoods,
         popularFoods,
+        banners,
+        setBanners
       }}
     >
       {children}
