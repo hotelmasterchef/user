@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import products from "../assets/fake-data/products";
 import ProductCard from "../components/product-card/ProductCard";
 import ReactPaginate from "react-paginate";
 import { useGlobalContext } from "../contextApi/Context";

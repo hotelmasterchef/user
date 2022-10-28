@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 
 import { Container, Row, Col } from "reactstrap";
-import { popularMenuFood } from "../../assets/fake-data/products";
 import { useGlobalContext } from "../../contextApi/Context";
 import ProductCard from "../product-card/ProductCard";
 import "./popular-menu.css";
