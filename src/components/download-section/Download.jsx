@@ -1,7 +1,7 @@
 import React from "react";
 import "./download.css";
 
-import appImg from "../../assets/images/app.png";
+import appImg from "../../assets/images/app.svg";
 
 import { Container, Row, Col } from "reactstrap";
 
@@ -12,7 +12,11 @@ const Download = () => {
         <Row>
           <Col lg="6" md="6">
             <div className="app__img">
-              <img src={appImg} alt="" />
+              <img
+                src={appImg}
+                alt=""
+                
+              />
             </div>
           </Col>
 

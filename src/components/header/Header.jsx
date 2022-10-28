@@ -55,7 +55,7 @@ const Header = () => {
               <div className="menu__right">
                 <div className="custom__search ">
                   <input type="text" placeholder="search item...." />
-                  <span>
+                  <span onClick={() => navigate("/menu")}>
                     <i className="ri-search-line"></i>
                   </span>
                 </div>
@@ -65,7 +65,7 @@ const Header = () => {
 
           <div>
             <span className="cart__icon cp" onClick={() => navigate("/cart")}>
-              <i className="ri-shopping-basket-line" style={{color: "#dcd9d9"}}></i>
+              <i className="ri-shopping-basket-line" style={{ color: "#dcd9d9" }}></i>
 
               <span className="badge" style={{ color: "#fff" }}>
                 {cartProduct?.length}
