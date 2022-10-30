@@ -5,12 +5,14 @@ import CartProduct from "../components/cart-product/CartProduct";
 import { useNavigate } from "react-router-dom";
 import map from "../assets/images/map.png";
 import { useToasts } from "react-toast-notifications";
+import { v4 } from "uuid";
+import { activeOrdersRef } from "../config/firebase";
 
 const Cart = () => {
   const { addToast } = useToasts();
   const navigate = useNavigate();
   const bottomRef = useRef();
-  const { cartProduct, setCartProduct, locaitonList, setLocationList } = useGlobalContext();
+  const { cartProduct, setCartProduct, setAlert, setLoading, locaitonList, setLocationList } = useGlobalContext();
   const [totalPrice, setTotalPrice] = useState(0);
   const [gstPrice, setGstPrice] = useState(0);
   const [delivery, setDelivery] = useState(20);
@@ -20,6 +22,8 @@ const Cart = () => {
   const [locationName, setLocationName] = useState("");
   const [locationMobile, setLocationMobile] = useState("");
   const [locationAddress, setLocationAddress] = useState("");
+  const [addressSelected, setAddressSelected] = useState(null);
+
   useEffect(() => {
     setTotalPrice(0);
     setDelivery(20);
@@ -61,13 +65,62 @@ const Cart = () => {
     setLocationAddress("");
     setAddNew(false);
   };
-  const removeAddress = (idx) => {
+  const removeAddress = (l, idx) => {
     let nowadrs = locaitonList?.filter((l, lid) => lid !== idx);
     setLocationList([...nowadrs]);
     localStorage.setItem("addressList", JSON.stringify([...nowadrs]));
+    if (l?.name === addressSelected?.name) setAddressSelected(null);
   };
   const executeScroll = () => bottomRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-
+  const handlePlaceOrder = async () => {
+    if (cartProduct?.length === 0) {
+      addToast("Your cart is empty.", { appearance: "error" });
+      return;
+    }
+    if (addressSelected === null) {
+      addToast("Please select delivery address.", { appearance: "error" });
+      return;
+    }
+    let nowCartProduc = cartProduct;
+    nowCartProduc.forEach(function (v) {
+      delete v?.image;
+    });
+    nowCartProduc.forEach(function (v) {
+      delete v?.menu;
+    });
+    let obj = {
+      items: cartProduct,
+      address: addressSelected,
+      totalPrice: totalPrice,
+      delivery_charge: delivery,
+    };
+    let id = v4();
+    setLoading(true);
+    activeOrdersRef
+      .doc(id)
+      .set({
+        _id: id,
+        ...obj,
+      })
+      .then((docs) => {
+        setLoading(false);
+        navigate("/menu");
+        addToast("Order placed successfully.", { appearance: "success" });
+        setTimeout(() => {
+          addToast("Please wait! you will get a confirmation call.", { appearance: "success" });
+        }, 1000);
+        setCartProduct([]);
+        setAddressSelected(null);
+      })
+      .catch((err) => {
+        setAlert({
+          flag: true,
+          type: "error",
+          msg: err.message,
+        });
+        setLoading(false);
+      });
+  };
   return (
     <Container
       style={{
@@ -132,7 +185,7 @@ const Cart = () => {
                 return (
                   <div className="address_options">
                     <div>
-                      <input type="radio" id={l_idx} name="age" value="30" />
+                      <input type="radio" id={l_idx} name="age" value={l_idx} onClick={() => setAddressSelected(l)} />
                       <label for={l_idx} style={{ textAlign: "left" }}>
                         {l?.name}, {l?.mobile}
                         <br />
@@ -140,7 +193,7 @@ const Cart = () => {
                         <br />
                       </label>
                     </div>
-                    <i className="ri-delete-bin-5-line cp" onClick={() => removeAddress(l_idx)} style={{ color: "red" }}></i>
+                    <i className="ri-delete-bin-5-line cp" onClick={() => removeAddress(l, l_idx)} style={{ color: "red" }}></i>
                   </div>
                 );
               })}
@@ -238,7 +291,9 @@ const Cart = () => {
             </table>
             <hr />
             {totalPrice < 500 && <p className="saving">You will get free delivery if you order above ₹500</p>}
-            <button>PLACE ORDER</button>
+            <button type="button" onClick={() => handlePlaceOrder()}>
+              PLACE ORDER
+            </button>
             <p style={{ marginTop: "20px" }}>Want to order manually ? Please call to bellow mention number.</p>
           </Card>
         </Col>
