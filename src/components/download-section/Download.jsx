@@ -4,6 +4,7 @@ import "./download.css";
 import appImg from "../../assets/images/app.svg";
 
 import { Container, Row, Col } from "reactstrap";
+import androidapk from "../../assets/apk/app-debug.apk";
 
 const Download = () => {
   return (
@@ -12,11 +13,7 @@ const Download = () => {
         <Row>
           <Col lg="6" md="6">
             <div className="app__img">
-              <img
-                src={appImg}
-                alt=""
-                
-              />
+              <img src={appImg} alt="" />
             </div>
           </Col>
 
@@ -27,20 +24,20 @@ const Download = () => {
               <p>If food is your question, our answer is yes! Choose your favorite dishes from our menu at great prices.</p>
 
               <div className="app__btns d-flex align-items-center gap-5 mt-4">
-                <button
-                  className="btn__apple d-flex align-items-center gap-3"
-                  onClick={() => alert("We are working on it.You can order through our website too.")}
-                >
+                <button className="btn__apple d-flex align-items-center gap-3" onClick={() => alert("We are working on it.")}>
                   <i className="ri-apple-line"></i> Apple Store
                 </button>
 
-                <button
-                  onClick={() => alert("We are working on it.You can order through our website too.")}
+                <a
+                  href={androidapk}
                   className="btn__google d-flex align-items-center gap-3"
+                  style={{
+                    cursor: "pointer",
+                  }}
                 >
                   <i className="ri-google-play-line"></i>
                   Google Play
-                </button>
+                </a>
               </div>
             </div>
           </Col>
