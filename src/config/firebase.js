@@ -17,3 +17,4 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const db = firebase.firestore();
 export const activeOrdersRef = db.collection('activeOrders')
+export const settings2 = db.collection("settings");

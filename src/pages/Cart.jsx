@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import map from "../assets/images/map.png";
 import { useToasts } from "react-toast-notifications";
 import { v4 } from "uuid";
-import { activeOrdersRef } from "../config/firebase";
+import { activeOrdersRef, settings2 } from "../config/firebase";
 
 const Cart = () => {
   const { addToast } = useToasts();
@@ -96,21 +96,45 @@ const Cart = () => {
     };
     let id = v4();
     setLoading(true);
-    activeOrdersRef
-      .doc(id)
-      .set({
-        _id: id,
-        ...obj,
-      })
-      .then((docs) => {
-        setLoading(false);
-        navigate("/menu");
-        addToast("Order placed successfully.", { appearance: "success" });
-        setTimeout(() => {
-          addToast("Please wait! you will get a confirmation call.", { appearance: "success" });
-        }, 1000);
-        setCartProduct([]);
-        setAddressSelected(null);
+    let acceptOrder = false;
+    let arr4 = [];
+    settings2
+      .get()
+      .then((docs4) => {
+        docs4.forEach((doc4) => {
+          arr4.push(doc4.data());
+        });
+        console.log(arr4);
+        acceptOrder = arr4[0]?.state;
+        if (arr4[0]?.state === false) {
+          addToast("We are currently not accepting any order! Please try after sometime.", { appearance: "error" });
+          setLoading(false);
+        } else {
+          activeOrdersRef
+            .doc(id)
+            .set({
+              _id: id,
+              ...obj,
+            })
+            .then((docs) => {
+              setLoading(false);
+              navigate("/menu");
+              addToast("Order placed successfully.", { appearance: "success" });
+              setTimeout(() => {
+                addToast("Please wait! you will get a confirmation call.", { appearance: "success" });
+              }, 1000);
+              setCartProduct([]);
+              setAddressSelected(null);
+            })
+            .catch((err) => {
+              setAlert({
+                flag: true,
+                type: "error",
+                msg: err.message,
+              });
+              setLoading(false);
+            });
+        }
       })
       .catch((err) => {
         setAlert({

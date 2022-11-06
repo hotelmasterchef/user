@@ -34,7 +34,7 @@ const Contact = () => {
             ></iframe>
           </Col>
         </Row>
-        <form action="" style={{ marginTop: "100px" }}>
+        {/* <form action="" style={{ marginTop: "100px" }}>
           <h2 className="text-center mt-5 mb-sm-5 mb-3">Contact Form</h2>
           <Row>
             <Col lg="6" sm="12">
@@ -50,7 +50,7 @@ const Contact = () => {
           <button type="button" className="button_p">
             Submit
           </button>
-        </form>
+        </form> */}
       </Container>
     </section>
   );
