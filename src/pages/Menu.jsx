@@ -8,6 +8,7 @@ const Menu = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const { foods, menus } = useGlobalContext();
+  console.log(menus)
   const [nowFoods, setNowFoods] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState("null");
   useEffect(() => {
@@ -16,6 +17,7 @@ const Menu = () => {
   useEffect(() => {
     if (selectedMenu === "null") setNowFoods([...foods]);
     else setNowFoods([...foods?.filter((f) => f?.menu === selectedMenu)]);
+    console.log(foods)
   }, [selectedMenu]);
 
   const searchedProduct = nowFoods.filter((item) => {
@@ -59,7 +61,7 @@ const Menu = () => {
               <select className="w-50  text-white" onChange={(e) => setSelectedMenu(e.target.value)}>
                 <option value="null">All Foods</option>
                 {menus?.map((m) => {
-                  return <option value={m?.name}>{m?.name}</option>;
+                  return <option value={m?._id}>{m?.name}</option>;
                 })}
               </select>
             </div>
