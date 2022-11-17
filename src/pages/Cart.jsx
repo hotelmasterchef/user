@@ -15,7 +15,7 @@ const Cart = () => {
   const { cartProduct, setCartProduct, setAlert, setLoading, locaitonList, setLocationList } = useGlobalContext();
   const [totalPrice, setTotalPrice] = useState(0);
   const [gstPrice, setGstPrice] = useState(0);
-  const [delivery, setDelivery] = useState(20);
+  const [delivery, setDelivery] = useState(10);
   const [itemsDrop, setItemsDrop] = useState(true);
   const [addressDrop, setAddressDrop] = useState(false);
   const [addNew, setAddNew] = useState(false);
@@ -23,10 +23,24 @@ const Cart = () => {
   const [locationMobile, setLocationMobile] = useState("");
   const [locationAddress, setLocationAddress] = useState("");
   const [addressSelected, setAddressSelected] = useState(null);
-
+  const [fetchedDelivery, setFetchedDelivery] = useState("");
+  useEffect(() => {
+    try {
+      let arr4 = [];
+      settings2.get().then((docs4) => {
+        docs4.forEach((doc4) => {
+          arr4.push(doc4.data());
+        });
+        if (arr4[1]?.state) {
+          setDelivery(parseInt(arr4[1]?.state));
+          setFetchedDelivery(parseInt(arr4[1]?.state));
+        }
+      });
+    } catch (error) {}
+  }, []);
   useEffect(() => {
     setTotalPrice(0);
-    setDelivery(20);
+    setDelivery(fetchedDelivery);
     let tPN = 0;
     cartProduct?.map((cp) => {
       let c = cp?.quantity * parseInt(cp?.price);
@@ -73,6 +87,10 @@ const Cart = () => {
   };
   const executeScroll = () => bottomRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   const handlePlaceOrder = async () => {
+    if (fetchedDelivery === "") {
+      addToast("Wait for delivery charge calculation.", { appearance: "error" });
+      return;
+    }
     if (cartProduct?.length === 0) {
       addToast("Your cart is empty.", { appearance: "error" });
       return;
@@ -93,6 +111,7 @@ const Cart = () => {
       address: addressSelected,
       totalPrice: totalPrice,
       delivery_charge: delivery,
+      date: new Date().toLocaleString(),
     };
     let id = v4();
     setLoading(true);

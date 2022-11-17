@@ -3,7 +3,7 @@ import "./footer.css";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import Img_chefHat from "../../assets/images/logo.png";
 
-const footerDeliveryTime = ["Monday - Saturday", "11:00am - 09:00pm", "Sunday - Off Day"];
+const footerDeliveryTime = ["All Day", "11:00am - 09:00pm"];
 
 const Footer = () => {
   return (
@@ -71,13 +71,13 @@ const Footer = () => {
 
                 <ListGroupItem className="link__item d-flex align-items-center gap-3">
                   <a className="d-flex align-items-center gap-3 link_hover" href="mailto:hotelmasterchef1@gmail.com">
-                    <i className="ri-mail-line"></i> hotelmasterchef1@gmail.com
+                    <i className="ri-mail-line"></i> hotelmasterchef.in@gmail.com
                   </a>
                 </ListGroupItem>
 
                 <ListGroupItem className="link__item  gap-3">
-                  <a className="d-flex align-items-center gap-3 link_hover" href="tel:+918378938837">
-                    <i className="ri-phone-line"></i> +91 8378938837
+                  <a className="d-flex align-items-center gap-3 link_hover" href="tel:+919040028837">
+                    <i className="ri-phone-line"></i> +91 9040028837
                   </a>
                   <a className="d-flex align-items-center gap-4 link_hover" href="tel:+919130328398">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 9130328398
