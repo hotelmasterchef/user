@@ -4,7 +4,7 @@ import "./download.css";
 import appImg from "../../assets/images/app.svg";
 
 import { Container, Row, Col } from "reactstrap";
-import androidapk from "../../assets/apk/app-debug.apk";
+import androidapk from "../../assets/apk/hotelmasterchef.apk";
 
 const Download = () => {
   return (
