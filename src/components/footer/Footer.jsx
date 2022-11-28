@@ -70,7 +70,7 @@ const Footer = () => {
                 </ListGroupItem>
 
                 <ListGroupItem className="link__item d-flex align-items-center gap-3">
-                  <a className="d-flex align-items-center gap-3 link_hover" href="mailto:hotelmasterchef1@gmail.com">
+                  <a className="d-flex align-items-center gap-3 link_hover" href="mailto:hotelmasterchef.in@gmail.com">
                     <i className="ri-mail-line"></i> hotelmasterchef.in@gmail.com
                   </a>
                 </ListGroupItem>

@@ -17,10 +17,11 @@ const Contact = () => {
                 <i className="ri-map-pin-line"></i>&nbsp;&nbsp;&nbsp;Hotel MasterChef, Tigiria
               </p>
               <p className="contact_info">
-                <i className="ri-mail-line"></i>&nbsp;&nbsp;&nbsp;hotelmasterchef1@gmail.com
+                <i className="ri-mail-line"></i>&nbsp;&nbsp;&nbsp;hotelmasterchef.in@gmail.com
               </p>
               <p className="contact_info">
-                <i className="ri-phone-line"></i>&nbsp;&nbsp;&nbsp;+91 8378938837
+                <i className="ri-phone-line"></i>&nbsp;&nbsp;&nbsp;+91 9040028837 <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 9130328398
               </p>
             </div>
           </Col>
