@@ -29,7 +29,7 @@ const Menu = () => {
     }
   });
 
-  const productPerPage = 12;
+  const productPerPage = 200;
   const visitedPage = pageNumber * productPerPage;
   const displayPage = searchedProduct.slice(visitedPage, visitedPage + productPerPage);
 
@@ -48,7 +48,7 @@ const Menu = () => {
         <Row>
           <Col lg="6" md="6" sm="6" xs="12">
             <div className="search__widget d-flex align-items-center justify-content-between ">
-              <input autoFocus type="text" placeholder="I'm looking for...." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              <input type="text" placeholder="Search here...." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               <span>
                 <i className="ri-search-line"></i>
               </span>
@@ -64,16 +64,27 @@ const Menu = () => {
               </select>
             </div>
           </Col>
-
           {displayPage.map((item) => (
             <Col lg="3" md="4" sm="6" xs="6" key={item._id} className="mb-4">
               <ProductCard item={item} />
             </Col>
           ))}
 
-          <div>
-            <ReactPaginate pageCount={pageCount} onPageChange={changePage} previousLabel={"Prev"} nextLabel={"Next"} containerClassName=" paginationBttns " />
-          </div>
+          {/* <div>
+            <ReactPaginate
+              breakLabel="..."
+              // pageCount={pageCount} 
+              itemsPerPage={12} 
+              onPageChange={changePage}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              previousLabel={"< Prev"}
+              nextLabel={"Next >"}
+              containerClassName="paginationBttns"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+            />
+          </div> */}
         </Row>
       </Container>
     </section>

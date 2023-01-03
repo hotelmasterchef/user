@@ -29,7 +29,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { cartProduct } = useGlobalContext();
 
-  const menuToggle = () => menuRef.current.classList.toggle("active__menu");
+  const menuToggle = () => menuRef.current.classList.add("active__menu");
 
   return (
     <header className="header">
@@ -43,7 +43,16 @@ const Header = () => {
             </h2>
           </div>
 
-          <div className="nav__menu " ref={menuRef}>
+          <div
+            className="nav__menu "
+            ref={menuRef}
+            onClick={() => {
+              console.log("clicked here");
+              console.log(menuRef.current.classList)
+              // if (menuRef.current.classList?.includes("active__menu"))
+               menuRef.current.classList.remove("active__menu");
+            }}
+          >
             <div className="nav__list__wrapper d-flex align-items-center gap-5">
               <ul className="nav__list">
                 {navLinks.map((item, index) => (

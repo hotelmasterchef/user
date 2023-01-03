@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Button, Card, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import { Button, Card, Col, Container, Form, FormGroup, Input, Label, Row, Spinner } from "reactstrap";
 import { useGlobalContext } from "../contextApi/Context";
 import CartProduct from "../components/cart-product/CartProduct";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +24,10 @@ const Cart = () => {
   const [locationAddress, setLocationAddress] = useState("");
   const [addressSelected, setAddressSelected] = useState(null);
   const [fetchedDelivery, setFetchedDelivery] = useState("");
+  const [load, setLoad] = useState(false);
   useEffect(() => {
     try {
+      setLoad(true);
       let arr4 = [];
       settings2.get().then((docs4) => {
         docs4.forEach((doc4) => {
@@ -34,10 +36,17 @@ const Cart = () => {
         if (arr4[1]?.state) {
           setDelivery(parseInt(arr4[1]?.state));
           setFetchedDelivery(parseInt(arr4[1]?.state));
+          setLoad(false);
         }
       });
-    } catch (error) {}
+    } catch (error) {
+      setLoad(false);
+    }
   }, []);
+  useEffect(() => {
+    console.log(locaitonList);
+    if (locaitonList?.length > 0) setAddressSelected(locaitonList[0]);
+  }, [locaitonList]);
   useEffect(() => {
     setTotalPrice(0);
     setDelivery(fetchedDelivery);
@@ -228,7 +237,14 @@ const Cart = () => {
                 return (
                   <div className="address_options">
                     <div>
-                      <input type="radio" id={l_idx} name="age" value={l_idx} onClick={() => setAddressSelected(l)} />
+                      <input
+                        type="radio"
+                        checked={addressSelected?.address === l?.address}
+                        id={l_idx}
+                        name="age"
+                        value={l_idx}
+                        onClick={() => setAddressSelected(l)}
+                      />
                       <label for={l_idx} style={{ textAlign: "left" }}>
                         {l?.name}, {l?.mobile}
                         <br />
@@ -334,8 +350,15 @@ const Cart = () => {
             </table>
             <hr />
             {totalPrice < 500 && <p className="saving">You will get free delivery if you order above ₹500</p>}
-            <button type="button" onClick={() => handlePlaceOrder()}>
-              PLACE ORDER
+            <button type="button" onClick={() => handlePlaceOrder()} disabled={load}>
+              {load ? (
+                <>
+                  <Spinner size="sm">Loading...</Spinner>
+                  <span> Loading</span>
+                </>
+              ) : (
+                " PLACE ORDER"
+              )}
             </button>
             <p style={{ marginTop: "20px" }}>Want to order manually ? Please call to bellow mention number.</p>
           </Card>
