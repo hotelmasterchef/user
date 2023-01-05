@@ -34,6 +34,7 @@ const Download = () => {
                   style={{
                     cursor: "pointer",
                   }}
+                  download
                 >
                   <i className="ri-google-play-line"></i>
                   Google Play
