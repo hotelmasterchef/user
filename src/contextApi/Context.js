@@ -34,9 +34,7 @@ const AppProvider = ({ children }) => {
   };
   const [locaitonList, setLocationList] = useState([]);
   const fetchAll = async () => {
-    setLoading(true);
     const response = await axios("https://raw.githubusercontent.com/hotelmasterchefdatabase/data/main/data.json");
-    setLoading(false);
     setFoods([...response?.data?.foods]);
     setMenus([...response?.data?.menus]);
     setPopularFoods([...response?.data?.popularFoods]);
