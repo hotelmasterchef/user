@@ -34,11 +34,18 @@ const AppProvider = ({ children }) => {
   };
   const [locaitonList, setLocationList] = useState([]);
   const fetchAll = async () => {
-    const response = await axios("https://raw.githubusercontent.com/hotelmasterchefdatabase/data/main/data.json");
-    setFoods([...response?.data?.foods]);
-    setMenus([...response?.data?.menus]);
-    setPopularFoods([...response?.data?.popularFoods]);
-    setBanners([...response?.data?.banners]);
+    try {
+      setLoading(true);
+      const response = await axios("https://raw.githubusercontent.com/hotelmasterchefdatabase/data/main/data.json");
+      setFoods([...response?.data?.foods]);
+      setMenus([...response?.data?.menus]);
+      setPopularFoods([...response?.data?.popularFoods]);
+      setBanners([...response?.data?.banners]);
+    } catch (error) {
+      alert("Error: Please contact hotel manager .");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <AppContext.Provider
@@ -64,7 +71,7 @@ const AppProvider = ({ children }) => {
         setPopularFoods,
         popularFoods,
         banners,
-        setBanners
+        setBanners,
       }}
     >
       {children}

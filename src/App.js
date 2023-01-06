@@ -16,6 +16,10 @@ function App() {
   useEffect(() => {
     fetchAll();
   }, []);
+  useEffect(() => {
+    if (loading) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+  }, [loading]);
 
   return (
     <div
@@ -25,20 +29,18 @@ function App() {
     >
       <BrowserRouter>
         <Header />
-        
-        {/* {loading ? (
+        {loading ? (
           <div className="loader_home">
             <Spinner color="primary">Loading...</Spinner>
           </div>
-        ) : ( */}
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/menu" element={<Menu />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/cart" element={<Cart />} />
-          </Routes>
-        {/* )} */}
+        ) : null}
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/menu" element={<Menu />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/cart" element={<Cart />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </div>
