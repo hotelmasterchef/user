@@ -36,6 +36,7 @@ const AppProvider = ({ children }) => {
   const fetchAll = async () => {
     try {
       setLoading(true);
+      // new address
       const response = await axios("https://raw.githack.com/hotelmasterchefdatabase/data/main/data.json");
       setFoods([...response?.data?.foods]);
       setMenus([...response?.data?.menus]);
