@@ -10,6 +10,7 @@ import { useGlobalContext } from "./contextApi/Context";
 import { Spinner } from "reactstrap";
 import { useEffect } from "react";
 import Cart from "./pages/Cart";
+import Privacy from "./pages/Privacy";
 
 function App() {
   const { loading, fetchAll } = useGlobalContext();
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/privacy" element={<Privacy />} />
         </Routes>
         <Footer />
       </BrowserRouter>
