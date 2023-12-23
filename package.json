@@ -1,6 +1,6 @@
 {
   "name": "hotel_masterchef",
-  "homepage": "https://www.hotelmasterchef.in",
+  "homepage": "http://www.hotelmasterchef.in",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
